@@ -6,56 +6,34 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface SkyrocketAi {
+        "text": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLSkyrocketAiElement extends Components.SkyrocketAi, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLSkyrocketAiElement: {
+        prototype: HTMLSkyrocketAiElement;
+        new (): HTMLSkyrocketAiElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "skyrocket-ai": HTMLSkyrocketAiElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface SkyrocketAi {
+        "text"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "skyrocket-ai": SkyrocketAi;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "skyrocket-ai": LocalJSX.SkyrocketAi & JSXBase.HTMLAttributes<HTMLSkyrocketAiElement>;
         }
     }
 }

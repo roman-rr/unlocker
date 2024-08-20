@@ -1,39 +1,33 @@
 :host {
   display: block;
+  --height: 40px;
+  --range-background: initial;
+  --range-border-color: #999999;
+  --handler-background: #222222;
 }
 
-.skyrocket-container {
-  width: 10%;
-  height: 50px;
-  background-color: #2f436e;
-  border-radius: 25px;
+.range {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Change to space-between for text alignment */
-  padding: 0 25px; /* Add padding for the slider button */
-  font-family: Arial, sans-serif;
-  color: #fff;
-  overflow: hidden;
+  height: var(--height);
+  background: var(--range-background);
+  border: 1px solid var(--range-border-color);
   user-select: none;
 }
 
-.slider-text {
-  z-index: 1;
-  font-size: 16px;
-  margin-right: 50px; /* Add margin to separate text from the slider button */
-}
+.handler {
+  width: var(--height);
+  height: var(--height);
+  background: var(--handler-background);
+  user-select: none;
+  touch-action: none;
+  cursor: pointer;
 
-.slider-button {
-  width: 50px;
-  height: 50px;
-  background-color: #3a5795;
-  border-radius: 50%;
-  position: absolute;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer; /* Change cursor to pointer */
+  // Improve performance
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+
+  &.transition {
+    transition: transform 0.3s ease-out;
+  }
 }

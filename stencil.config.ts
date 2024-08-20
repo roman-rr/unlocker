@@ -25,5 +25,8 @@ export const config: Config = {
   plugins: [
     sass()
   ],
-  globalStyle: 'src/theme/global.scss'
+  globalStyle: 'src/theme/global.scss',
+  devServer: {
+    reloadStrategy: 'pageReload'
+  }
 };

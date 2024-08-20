@@ -1,5 +1,5 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { SkyrocketAI } from './skyrocket-ai';
+import { SkyrocketAI } from './../skyrocket-ai';
 
 describe('my-component', () => {
   it('renders', async () => {

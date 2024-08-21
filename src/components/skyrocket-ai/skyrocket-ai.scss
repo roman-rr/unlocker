@@ -21,6 +21,7 @@
   user-select: none;
   touch-action: none;
   cursor: pointer;
+  transition: transform 0.05s ease-out;
 
   // Improve performance
   will-change: transform;

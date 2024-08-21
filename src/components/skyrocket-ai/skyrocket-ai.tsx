@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop, State } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'skyrocket-ai',
@@ -8,9 +8,13 @@ import { Component, Element, h, Host, Prop, State } from '@stencil/core';
 export class SkyrocketAI {
   @Prop() text: string;
   @State() xPosition: number = 0;
-  @State() fired: boolean = false;
+  @State() unlocked: boolean = false;
   @State() percentage: number = 0;
   @Element() el: HTMLElement;
+
+  @Event() unlockedChanged: EventEmitter<boolean>;
+  @Event() percentageChanged: EventEmitter<number>;
+
   startX: number = 0;
   rangeWidth: number = 0;
   handlerWidth: number = 0;
@@ -80,10 +84,19 @@ export class SkyrocketAI {
       this.xPosition = newXPosition;
       this.percentage = (this.xPosition / (this.rangeWidth - this.handlerWidth)) * 100;
 
+      // Emit percentage change event
+      this.percentageChanged.emit(this.percentage);
+
       if (newXPosition >= (this.rangeWidth - this.handlerWidth) * this.firePercentage) {
-        this.fired = true;
+        if (!this.unlocked) {
+          this.unlocked = true;
+          this.unlockedChanged.emit(this.unlocked);  // Emit unlocked change event
+        }
       } else {
-        this.fired = false;
+        if (this.unlocked) {
+          this.unlocked = false;
+          this.unlockedChanged.emit(this.unlocked);  // Emit unlocked change event
+        }
       }
     });
   };
@@ -103,6 +116,22 @@ export class SkyrocketAI {
       this.xPosition = 0;
       this.percentage = 0;
     }
+
+    // Emit percentage change event
+    this.percentageChanged.emit(this.percentage);
+
+    // Emit unlocked change event
+    this.unlockedChanged.emit(this.unlocked);
+  };
+
+  private reset = () => {
+    this.xPosition = 0;
+    this.unlocked = false;
+    this.percentage = 0;
+
+    // Emit reset events
+    this.unlockedChanged.emit(this.unlocked);
+    this.percentageChanged.emit(this.percentage);
   };
 
   render() {
@@ -118,13 +147,8 @@ export class SkyrocketAI {
             onTouchStart={this.handlePointerStart}
             onTouchMove={this.handlePointerMove}
             onTouchEnd={this.handlePointerEnd}
-            onPointerDown={this.handlePointerStart}
-          >
+            onPointerDown={this.handlePointerStart}>
           </div>
-        </div>
-
-        <div class="status">
-          fired: {this.fired ? 'true' : 'false'}, percentage: {this.percentage.toFixed(0)}%
         </div>
       </Host>
     );

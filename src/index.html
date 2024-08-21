@@ -7,8 +7,37 @@
 
     <script type="module" src="/build/skyrocket.esm.js"></script>
     <script nomodule src="/build/skyrocket.js"></script>
+    <style>
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
     <skyrocket-ai text="Unlock now"></skyrocket-ai>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button class="reset-button" onClick={this.reset}>Reset</button>
+      <div class="indicators">
+        Unlocked: <span class="unlocked">false</span> | Percentage: <span class="percentage">0</span>%
+      </div>
+    </div>
+    
+    <script>
+      const skyrocketElement = document.querySelector('skyrocket-ai');
+      const unlockedEl = document.querySelector('.unlocked');
+      const percentageEl = document.querySelector('.percentage');
+    
+      skyrocketElement.addEventListener('unlockedChanged', (event) => {
+        unlockedEl.innerHTML = event.detail ? 'true' : 'false';
+      });
+    
+      skyrocketElement.addEventListener('percentageChanged', (event) => {
+        percentageEl.innerHTML = parseInt(event.detail);
+      });
+    </script>
   </body>
 </html>

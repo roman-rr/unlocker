@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { SkyrocketAI } from './../skyrocket-ai';
+import { UnlockerKit } from '../unlocker-kit';
 
 describe('my-component', () => {
   it('renders', async () => {
     const { root } = await newSpecPage({
-      components: [SkyrocketAI],
+      components: [UnlockerKit],
       html: '<my-component></my-component>',
     });
     expect(root).toEqualHtml(`
@@ -20,7 +20,7 @@ describe('my-component', () => {
 
   it('renders with values', async () => {
     const { root } = await newSpecPage({
-      components: [SkyrocketAI],
+      components: [UnlockerKit],
       html: `<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>`,
     });
     expect(root).toEqualHtml(`

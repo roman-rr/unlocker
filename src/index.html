@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/skyrocket.esm.js"></script>
-    <script nomodule src="/build/skyrocket.js"></script>
+    <script type="module" src="/build/unlocker.esm.js"></script>
+    <script nomodule src="/build/unlocker.js"></script>
     <style>
       .controls {
         display: flex;
@@ -16,26 +16,25 @@
     </style>
   </head>
   <body>
-    <skyrocket-ai text="Unlock now"></skyrocket-ai>
+    <unlocker-kit text="Unlock now"></unlocker-kit>
 
     <!-- Controls -->
     <div class="controls">
-      <button class="reset-button" onClick={this.reset}>Reset</button>
       <div class="indicators">
         Unlocked: <span class="unlocked">false</span> | Percentage: <span class="percentage">0</span>%
       </div>
     </div>
     
     <script>
-      const skyrocketElement = document.querySelector('skyrocket-ai');
+      const unlockerElement = document.querySelector('unlocker-kit');
       const unlockedEl = document.querySelector('.unlocked');
       const percentageEl = document.querySelector('.percentage');
     
-      skyrocketElement.addEventListener('unlockedChanged', (event) => {
+      unlockerElement.addEventListener('unlockedChanged', (event) => {
         unlockedEl.innerHTML = event.detail ? 'true' : 'false';
       });
     
-      skyrocketElement.addEventListener('percentageChanged', (event) => {
+      unlockerElement.addEventListener('percentageChanged', (event) => {
         percentageEl.innerHTML = parseInt(event.detail);
       });
     </script>

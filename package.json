@@ -1,7 +1,9 @@
 {
-  "name": "skyrocket",
+  "name": "unlocker",
   "version": "0.0.1",
-  "description": "A button that makes your conversion skyrocketing",
+  "author": "Roman Antonov (roman-rr)",
+  "repository": "roman-rr/unlocker",
+  "description": "Release to unlock button that makes your conversion skyrocketing",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.js",
@@ -9,25 +11,21 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/skyrocket/skyrocket.esm.js",
+  "unpkg": "dist/unlocker/unlocker.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/skyrocket/skyrocket.esm.js",
-      "require": "./dist/skyrocket/skyrocket.cjs.js"
+      "import": "./dist/unlocker/unlocker.esm.js",
+      "require": "./dist/unlocker/unlocker.cjs.js"
     },
     "./my-component": {
-      "import": "./dist/components/skyrocket-ai.js",
-      "types": "./dist/components/skyrocket-ai.d.ts"
+      "import": "./dist/components/unlocker-ai.js",
+      "types": "./dist/components/unlocker-ai.d.ts"
     },
     "./loader": {
       "import": "./loader/index.js",
       "require": "./loader/index.cjs",
       "types": "./loader/index.d.ts"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
   },
   "files": [
     "dist/",

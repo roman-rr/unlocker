@@ -1,11 +1,11 @@
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
 
 @Component({
-  tag: 'skyrocket-ai',
-  styleUrl: 'skyrocket-ai.scss',
+  tag: 'unlocker-kit',
+  styleUrl: 'unlocker-kit.scss',
   shadow: true
 })
-export class SkyrocketAI {
+export class UnlockerKit {
   @Prop() text: string;
   @State() xPosition: number = 0;
   @State() unlocked: boolean = false;

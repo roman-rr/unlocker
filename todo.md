@@ -1,0 +1,19 @@
+## (WAIT FOR CHANNEL) Unlocker
+- reset state on release
+- tap here (same tg option)
+- tests
+- Scene: represent and headers same panes scenes
+- Scene: sidemenu / panes for config
+- choose framework ... unlock now... generate code
+- unlock animation same coin in mario
+- random config
+- developers pick... most conversion...
+- Theming ability 
+- GPT theming
+- README + v.0.0.2
+- Github Pages fast upload
+- CI/CD workflow: commit -> test -> build -> deploy
+- Analytics 
+- Many Options
+- All forums, made with stenciljs, twitter
+- pull to telegram UI
